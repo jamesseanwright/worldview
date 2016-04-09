@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Windows.Web.Http.Headers;
 using Windows.Web.Http;
@@ -21,7 +19,7 @@ namespace UnsplashRoulette.Data
             this.headers = httpClient.DefaultRequestHeaders;
         }
 
-        public async override Task<IInputStream> GetAsync(string url, Dictionary<string, string> headers = null)
+        public async override Task<Stream> GetAsync(string url, Dictionary<string, string> headers = null)
         {
             if (headers != null)
             {
@@ -29,7 +27,8 @@ namespace UnsplashRoulette.Data
             }
 
             HttpResponseMessage response = await this.httpClient.GetAsync(new Uri(url));
-            return await response.Content.ReadAsInputStreamAsync();
+            IInputStream inputStream = await response.Content.ReadAsInputStreamAsync();
+            return inputStream.AsStreamForRead();
         }
 
         private void AddHeaders(Dictionary<string, string> headers)

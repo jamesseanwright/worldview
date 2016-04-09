@@ -8,8 +8,8 @@ using Windows.Storage.Streams;
 
 namespace UnsplashRoulette.Data
 {
-    abstract class HttpService
+    abstract class Deserialiser
     {
-        public abstract Task<Stream> GetAsync(string url, Dictionary<string, string> headers);
+        public abstract T DeserialiseTo<T>(Stream data) where T : class;
     }
 }
