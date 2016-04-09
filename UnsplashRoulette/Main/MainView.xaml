@@ -9,6 +9,8 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        
+        <Image Source="{Binding Image}"
+               Width="1920"
+               Height="1080" />
     </Grid>
 </framework:View>

@@ -11,10 +11,10 @@ namespace UnsplashRoulette
         public static void Register(DependencyInjector injector)
         {
             injector.CreateSingleton<ViewResolver, UwpViewResolver>();
-            injector.CreateSingleton<Navigator,  UwpNavigator>(typeof (ViewResolver));
+            injector.CreateSingleton<Navigator,  UwpNavigator>(typeof(ViewResolver));
             injector.CreateSingleton<HttpService, UwpHttpService>();
             injector.CreateSingleton<Deserialiser, JsonDeserialiser>();
-            injector.CreateSingleton<IPhotoService, UnsplashService>(typeof (HttpService), typeof (Deserialiser));
+            injector.CreateSingleton<IPhotoService, UnsplashService>(typeof(HttpService), typeof(Deserialiser));
 
             ViewResolver viewResolver = injector.GetSingleton<ViewResolver>();
             viewResolver.Register<MainViewModel, MainView>();

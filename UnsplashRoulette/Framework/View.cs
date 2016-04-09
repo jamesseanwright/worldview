@@ -23,22 +23,13 @@ namespace UnsplashRoulette.Framework
         void ViewLoaded(object sender, RoutedEventArgs e)
         {
             this.viewModel = DataContext as ViewModel;
+            this.viewModel?.OnNavigatedTo();
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             base.OnNavigatedFrom(e);
-
-            if (this.viewModel != null)
-                this.viewModel.OnNavigatedFrom();
-        }
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-
-            if (this.viewModel != null)
-                this.viewModel.OnNavigatedTo();
+            this.viewModel?.OnNavigatedFrom();
         }
     }
 }
