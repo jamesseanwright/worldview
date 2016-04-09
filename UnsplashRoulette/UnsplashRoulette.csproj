@@ -98,17 +98,15 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dependencies.cs" />
     <Compile Include="Framework\ActionCommand.cs" />
     <Compile Include="Framework\DependencyInjector.cs" />
-    <Compile Include="Framework\INavigator.cs" />
-    <Compile Include="Framework\IViewResolver.cs" />
     <Compile Include="Framework\Navigator.cs" />
+    <Compile Include="Framework\ViewResolver.cs" />
+    <Compile Include="Framework\UWPNavigator.cs" />
     <Compile Include="Framework\View.cs" />
     <Compile Include="Framework\ViewModel.cs" />
-    <Compile Include="Framework\ViewResolver.cs" />
-    <Compile Include="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Framework\UWPViewResolver.cs" />
     <Compile Include="Main\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
@@ -136,10 +134,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Main\MainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

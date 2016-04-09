@@ -1,33 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace UnsplashRoulette.Framework
 {
-    public class ViewResolver : IViewResolver
+    public abstract class ViewResolver
     {
-        Dictionary<Type, Type> mappings;
-
-        public ViewResolver()
-        {
-            this.mappings = new Dictionary<Type, Type>();
-        }
-
-        public Type GetFromViewModel(Type viewModel)
-        {
-            Type outRef = null;
-
-            if (this.mappings.TryGetValue(viewModel, out outRef))
-            {
-                return outRef;
-            }
-
-            return null;
-        }
-
-
-        public void Register<TViewModel, TView>()
-        {
-            this.mappings.Add(typeof (TViewModel), typeof(TView));
-        }
+        public abstract Type GetFromViewModel(Type viewModel);
+        public abstract void Register<TView, TViewModel>();
     }
 }
