@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using UnsplashRoulette.Framework;
 using UnsplashRoulette.Photos;
@@ -8,8 +9,8 @@ namespace UnsplashRoulette.Main
     class MainViewModel : ViewModel
     {
         IPhotoService photoService;
-        Timer slideshowTimer;
 
+        const int SlideDurationSeconds = 10;
 
         public MainViewModel(IPhotoService photoService)
         {
@@ -19,12 +20,6 @@ namespace UnsplashRoulette.Main
         public async override void OnNavigatedTo()
         {
             await UpdatePhotoAsync();
-        }
-
-        public override void OnNavigatedFrom()
-        {
-            base.OnNavigatedFrom();
-            this.slideshowTimer.Dispose();
         }
 
         private string image;
@@ -46,6 +41,13 @@ namespace UnsplashRoulette.Main
         {
             Photo photo = await this.photoService.GetRandomPhotoAsync(1920, 1080);
             Image = photo.Url;
+            await EnqueueUpdate();
+        }
+
+        private async Task EnqueueUpdate()
+        {
+            await Task.Delay(TimeSpan.FromSeconds(SlideDurationSeconds));
+            await UpdatePhotoAsync();
         }
     }
 }

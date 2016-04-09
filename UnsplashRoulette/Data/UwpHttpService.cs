@@ -19,19 +19,14 @@ namespace UnsplashRoulette.Data
             this.headers = httpClient.DefaultRequestHeaders;
         }
 
-        public async override Task<Stream> GetAsync(string url, Dictionary<string, string> headers = null)
+        public async override Task<Stream> GetAsync(string url)
         {
-            if (headers != null)
-            {
-                AddHeaders(headers);
-            }
-
             HttpResponseMessage response = await this.httpClient.GetAsync(new Uri(url));
             IInputStream inputStream = await response.Content.ReadAsInputStreamAsync();
             return inputStream.AsStreamForRead();
         }
 
-        private void AddHeaders(Dictionary<string, string> headers)
+        public override void AddHeaders(Dictionary<string, string> headers)
         {
             foreach (KeyValuePair<string, string> header in headers)
             {

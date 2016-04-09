@@ -19,19 +19,25 @@ namespace UnsplashRoulette.Photos.Unsplash
         {
             this.httpService = httpService;
             this.deserialiser = deserialiser;
+            AddHeaders();
         }
 
         public async Task<Photo> GetRandomPhotoAsync(int width, int height)
         {
-            Dictionary<string, string> headers = new Dictionary<string, string>
-            {
-                ["Authorization"] = String.Format("Client-ID {0}", ClientId)
-            };
-
             string url = String.Format("{0}{1}?w={2}&h={3}", ApiRoot, RandomPhotoEndpoint, width, height);
-            Stream data = await this.httpService.GetAsync(url, headers);
+            Stream data = await this.httpService.GetAsync(url);
             UnsplashPhoto unsplashPhoto = this.deserialiser.DeserialiseTo<UnsplashPhoto>(data);
             return MapToPhoto(unsplashPhoto);
+        }
+
+        private void AddHeaders()
+        {
+            this.httpService.AddHeaders(
+                new Dictionary<string, string>
+                {
+                    ["Authorization"] = String.Format("Client-ID {0}", ClientId)
+                }
+            );
         }
 
         private Photo MapToPhoto(UnsplashPhoto unsplashPhoto)
