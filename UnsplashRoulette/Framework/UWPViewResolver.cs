@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace UnsplashRoulette.Framework
 {
-    public class UWPViewResolver : ViewResolver
+    public class UwpViewResolver : ViewResolver
     {
         Dictionary<Type, Type> mappings;
 
-        public UWPViewResolver()
+        public UwpViewResolver()
         {
             this.mappings = new Dictionary<Type, Type>();
         }

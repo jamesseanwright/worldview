@@ -4,12 +4,12 @@ using Windows.UI.Xaml.Controls;
 
 namespace UnsplashRoulette.Framework
 {
-    public class UWPNavigator : Navigator
+    public class UwpNavigator : Navigator
     {
         readonly Frame rootFrame;
         ViewResolver viewResolver;
 
-        public UWPNavigator(ViewResolver viewResolver)
+        public UwpNavigator(ViewResolver viewResolver)
         {
             this.viewResolver = viewResolver;
             this.rootFrame = (Frame)Window.Current.Content;

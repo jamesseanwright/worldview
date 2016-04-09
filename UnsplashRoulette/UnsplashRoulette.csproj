@@ -103,15 +103,21 @@
     <Compile Include="Framework\DependencyInjector.cs" />
     <Compile Include="Framework\Navigator.cs" />
     <Compile Include="Framework\ViewResolver.cs" />
-    <Compile Include="Framework\UWPNavigator.cs" />
+    <Compile Include="Framework\UwpNavigator.cs" />
     <Compile Include="Framework\View.cs" />
     <Compile Include="Framework\ViewModel.cs" />
-    <Compile Include="Framework\UWPViewResolver.cs" />
+    <Compile Include="Framework\UwpViewResolver.cs" />
+    <Compile Include="Data\HttpService.cs" />
+    <Compile Include="Data\UwpHttpService.cs" />
     <Compile Include="Main\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Main\MainViewModel.cs" />
+    <Compile Include="Photos\Location.cs" />
+    <Compile Include="Photos\Photo.cs" />
+    <Compile Include="Photos\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Photos\IPhotoService.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -139,6 +145,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

@@ -8,14 +8,14 @@ using Windows.Web.Http.Headers;
 using Windows.Web.Http;
 using Windows.Storage.Streams;
 
-namespace UnsplashRoulette.Http
+namespace UnsplashRoulette.Data
 {
     class UwpHttpService : HttpService
     {
         HttpClient httpClient;
         HttpRequestHeaderCollection headers;
 
-        UwpHttpClient()
+        public UwpHttpService()
         {
             this.httpClient = new Windows.Web.Http.HttpClient();
             this.headers = httpClient.DefaultRequestHeaders;
