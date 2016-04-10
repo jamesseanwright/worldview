@@ -11,5 +11,9 @@
 
     <Grid Background="Black">
         <ImageControls:CrossFadingImage Source="{Binding Image}" />
+
+        <MediaElement Visibility="Collapsed"
+                      Source="{Binding Track}"
+                      AutoPlay="True" />
     </Grid>
 </framework:View>

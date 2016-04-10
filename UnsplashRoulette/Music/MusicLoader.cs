@@ -5,6 +5,6 @@ namespace UnsplashRoulette.Music
 {
     abstract class MusicLoader
     {
-        public abstract Task<IRandomAccessStream> GetRandomTrackAsync();
+        public abstract string GetRandomTrack();
     }
 }

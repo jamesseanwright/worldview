@@ -119,8 +119,8 @@
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Main\MainViewModel.cs" />
-    <Compile Include="Music\Music.cs" />
-    <Compile Include="Music\UwpMusic.cs" />
+    <Compile Include="Music\MusicLoader.cs" />
+    <Compile Include="Music\UwpMusicLoader.cs" />
     <Compile Include="Photos\Location.cs" />
     <Compile Include="Photos\Photo.cs" />
     <Compile Include="Photos\Unsplash\UnsplashAvatarCollection.cs" />
