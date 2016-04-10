@@ -3,7 +3,9 @@ using System.IO;
 using System.Threading.Tasks;
 using UnsplashRoulette.Device;
 using UnsplashRoulette.Framework;
+using UnsplashRoulette.Music;
 using UnsplashRoulette.Photos;
+using Windows.Storage.Streams;
 
 namespace UnsplashRoulette.Main
 {
@@ -11,17 +13,20 @@ namespace UnsplashRoulette.Main
     {
         PhotoService photoService;
         Viewport viewport;
+        MusicLoader musicLoader
 
         const int SlideDurationSeconds = 10;
 
-        public MainViewModel(PhotoService photoService, Viewport viewport)
+        public MainViewModel(PhotoService photoService, Viewport viewport, MusicLoader musicLoader)
         {
             this.photoService = photoService;
             this.viewport = viewport;
+            this.musicLoader = musicLoader;
         }
 
         public async override void OnNavigatedTo()
         {
+            await SetMusicAsync();
             await UpdatePhotoAsync();
         }
 
@@ -38,6 +43,26 @@ namespace UnsplashRoulette.Main
                 this.image = value;
                 RaisePropertyChanged();
             }
+        }
+
+        private IRandomAccessStream music;
+        public IRandomAccessStream Music
+        {
+            get
+            {
+                return this.music;
+            }
+
+            set
+            {
+                this.music = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private async Task SetMusicAsync()
+        {
+            IRandomAccessStream musicData = await this.musicLoader.GetRandomTrackAsync();
         }
 
         private async Task UpdatePhotoAsync()

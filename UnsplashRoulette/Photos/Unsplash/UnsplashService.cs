@@ -26,7 +26,7 @@ namespace UnsplashRoulette.Photos.Unsplash
 
         public async override Task<Photo> GetRandomPhotoAsync(int width, int height)
         {
-            string url = String.Format("{0}{1}?w={2}&h={3}", ApiRoot, RandomPhotoEndpoint, width, height);
+            string url = string.Format("{0}{1}?w={2}&h={3}", ApiRoot, RandomPhotoEndpoint, width, height);
 
             using (Stream data = await this.httpService.GetAsync(url))
             {
@@ -46,7 +46,7 @@ namespace UnsplashRoulette.Photos.Unsplash
             this.httpService.AddHeaders(
                 new Dictionary<string, string>
                 {
-                    ["Authorization"] = String.Format("Client-ID {0}", ClientId)
+                    ["Authorization"] = string.Format("Client-ID {0}", ClientId)
                 }
             );
         }

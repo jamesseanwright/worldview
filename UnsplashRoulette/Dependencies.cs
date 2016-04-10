@@ -4,6 +4,7 @@ using UnsplashRoulette.Data;
 using UnsplashRoulette.Photos;
 using UnsplashRoulette.Photos.Unsplash;
 using UnsplashRoulette.Device;
+using UnsplashRoulette.Music;
 
 namespace UnsplashRoulette
 {
@@ -14,6 +15,7 @@ namespace UnsplashRoulette
             injector.CreateSingleton<ViewResolver, UwpViewResolver>();
             injector.CreateSingleton<Navigator,  UwpNavigator>(typeof(ViewResolver));
             injector.CreateSingleton<Viewport,  UwpViewport>();
+            injector.CreateSingleton<MusicLoader, UwpMusicLoader>();
             injector.CreateSingleton<HttpService, UwpHttpService>();
             injector.CreateSingleton<Deserialiser, JsonDeserialiser>();
             injector.CreateSingleton<PhotoService, UnsplashService>(typeof(HttpService), typeof(Deserialiser));

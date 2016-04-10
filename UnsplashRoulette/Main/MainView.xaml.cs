@@ -3,6 +3,7 @@ using UnsplashRoulette.Photos;
 using Windows.UI.Xaml;
 using Windows.System.Profile;
 using UnsplashRoulette.Device;
+using UnsplashRoulette.Music;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -16,7 +17,7 @@ namespace UnsplashRoulette.Main
         public MainView()
         {
             this.InitializeComponent();
-            DataContext = DependencyInjector.Instance.CreateInstance<MainViewModel>(typeof(PhotoService), typeof (Viewport));
+            DataContext = DependencyInjector.Instance.CreateInstance<MainViewModel>(typeof(PhotoService), typeof(Viewport), typeof(MusicLoader));
         }
     }
 }

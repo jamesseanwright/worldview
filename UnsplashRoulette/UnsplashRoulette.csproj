@@ -119,6 +119,8 @@
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Main\MainViewModel.cs" />
+    <Compile Include="Music\Music.cs" />
+    <Compile Include="Music\UwpMusic.cs" />
     <Compile Include="Photos\Location.cs" />
     <Compile Include="Photos\Photo.cs" />
     <Compile Include="Photos\Unsplash\UnsplashAvatarCollection.cs" />
@@ -140,6 +142,11 @@
     <None Include="UnsplashRoulette_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Music\Tracks\0.mp3" />
+    <Content Include="Music\Tracks\1.mp3" />
+    <Content Include="Music\Tracks\2.mp3" />
+    <Content Include="Music\Tracks\3.mp3" />
+    <Content Include="Music\Tracks\4.mp3" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
