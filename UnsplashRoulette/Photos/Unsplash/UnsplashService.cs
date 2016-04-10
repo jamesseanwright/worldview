@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
 using UnsplashRoulette.Data;
@@ -54,8 +55,8 @@ namespace UnsplashRoulette.Photos.Unsplash
 
                 Location = new Location
                 {
-                    City = unsplashPhoto.Location.City,
-                    Country = unsplashPhoto.Location.Country
+                    City = unsplashPhoto.Location?.City,
+                    Country = unsplashPhoto.Location?.Country
                 }
             };
         }
