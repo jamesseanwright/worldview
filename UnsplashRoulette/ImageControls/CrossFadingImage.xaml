@@ -6,9 +6,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
     <Grid>
         <Image x:Name="CurrentPhoto"
-               Stretch="UniformToFill" />
+               Stretch="UniformToFill"
+               Opacity="1" />
 
         <Image x:Name="StalePhoto"
-               Stretch="UniformToFill" />
+               Stretch="UniformToFill"
+               Opacity="0" />
     </Grid>
 </UserControl>

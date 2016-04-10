@@ -30,9 +30,9 @@ namespace UnsplashRoulette.ImageControls
             "Source",
             typeof(Stream),
             typeof(CrossFadingImage),
-            new PropertyMetadata(string.Empty, async (i, args) => await LoadImageAsync(i, args))
+            new PropertyMetadata(string.Empty, async (i, args) => await OnImageChangedAsync(i, args))
         );
-        
+
         public Stream Source
         {
             get
@@ -46,23 +46,39 @@ namespace UnsplashRoulette.ImageControls
             }
         }
 
-        public Stream StaleSource { get; private set; }
-
-        private static async Task LoadImageAsync(object instance, DependencyPropertyChangedEventArgs args)
+        private static async Task OnImageChangedAsync(object instance, DependencyPropertyChangedEventArgs args)
         {
             CrossFadingImage imageControl = (CrossFadingImage) instance;
             Stream newSource = (Stream) args.NewValue;
+            imageControl.MakeCurrentImageStale();
+            await imageControl.UpdateImageAsync(newSource);
+        }
+
+        private void MakeCurrentImageStale()
+        {
+            if (CurrentPhoto.Source != null)
+            {
+                StalePhoto.Source = CurrentPhoto.Source;
+                StalePhoto.Opacity = 1;
+                CurrentPhoto.Opacity = 0;
+            }
+        }
+
+        private async Task UpdateImageAsync(Stream newSource)
+        {
             MemoryStream memoryStream = new MemoryStream();
             await newSource.CopyToAsync(memoryStream);
             memoryStream.Position = 0;
             BitmapImage image = new BitmapImage();
-            image.ImageOpened += (s, a) => imageControl.OnImageLoaded(image);
+            image.ImageOpened += (s, a) => OnImageLoaded(image);
             await image.SetSourceAsync(memoryStream.AsRandomAccessStream());
         }
 
         private void OnImageLoaded(BitmapImage image)
         {
             CurrentPhoto.Source = image;
+            CurrentPhoto.Opacity = 1;
+            StalePhoto.Opacity = 0;
         }
     }
 }
