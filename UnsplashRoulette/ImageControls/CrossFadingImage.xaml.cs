@@ -42,6 +42,7 @@ namespace UnsplashRoulette.ImageControls
 
             set
             {
+                Source.Dispose();
                 SetValue(SourceProperty, value);
             }
         }

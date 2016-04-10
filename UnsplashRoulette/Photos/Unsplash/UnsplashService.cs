@@ -27,9 +27,12 @@ namespace UnsplashRoulette.Photos.Unsplash
         public async override Task<Photo> GetRandomPhotoAsync(int width, int height)
         {
             string url = String.Format("{0}{1}?w={2}&h={3}", ApiRoot, RandomPhotoEndpoint, width, height);
-            Stream data = await this.httpService.GetAsync(url);
-            UnsplashPhoto unsplashPhoto = this.deserialiser.DeserialiseTo<UnsplashPhoto>(data);
-            return MapToPhoto(unsplashPhoto);
+
+            using (Stream data = await this.httpService.GetAsync(url))
+            {
+                UnsplashPhoto unsplashPhoto = this.deserialiser.DeserialiseTo<UnsplashPhoto>(data);
+                return MapToPhoto(unsplashPhoto);
+            }
         }
 
         public async override Task<Stream> GetPhotoDataAsync(string url)

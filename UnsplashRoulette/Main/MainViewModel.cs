@@ -44,8 +44,12 @@ namespace UnsplashRoulette.Main
         {
             Size screenSize = this.viewport.GetNormalisedAppSize();
             Photo photo = await this.photoService.GetRandomPhotoAsync((int) screenSize.Width * 2, (int) screenSize.Height * 2);
-            Stream photoData = await this.photoService.GetPhotoDataAsync(photo.Url);
-            Image = photoData;
+
+            using (Stream photoData = await this.photoService.GetPhotoDataAsync(photo.Url))
+            {
+                Image = photoData;
+            }
+
             await EnqueueUpdate();
         }
 
