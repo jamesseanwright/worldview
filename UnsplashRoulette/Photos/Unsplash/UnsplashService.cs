@@ -6,7 +6,7 @@ using UnsplashRoulette.Data;
 
 namespace UnsplashRoulette.Photos.Unsplash
 {
-    class UnsplashService : IPhotoService
+    class UnsplashService : PhotoService
     {
         const string ApiRoot = "https://api.unsplash.com";
         const string RandomPhotoEndpoint = "/photos/random";
@@ -22,7 +22,7 @@ namespace UnsplashRoulette.Photos.Unsplash
             AddHeaders();
         }
 
-        public async Task<Photo> GetRandomPhotoAsync(int width, int height)
+        public async override Task<Photo> GetRandomPhotoAsync(int width, int height)
         {
             string url = String.Format("{0}{1}?w={2}&h={3}", ApiRoot, RandomPhotoEndpoint, width, height);
             Stream data = await this.httpService.GetAsync(url);

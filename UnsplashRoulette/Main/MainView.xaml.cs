@@ -13,7 +13,7 @@ namespace UnsplashRoulette.Main
         public MainView()
         {
             this.InitializeComponent();
-            DataContext = DependencyInjector.Instance.CreateInstance<MainViewModel>(typeof(IPhotoService));
+            DataContext = DependencyInjector.Instance.CreateInstance<MainViewModel>(typeof(PhotoService));
         }
     }
 }

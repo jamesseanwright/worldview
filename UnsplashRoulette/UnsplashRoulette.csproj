@@ -125,7 +125,7 @@
     <Compile Include="Photos\Unsplash\UnsplashUser.cs" />
     <Compile Include="Photos\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Photos\IPhotoService.cs" />
+    <Compile Include="Photos\PhotoService.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

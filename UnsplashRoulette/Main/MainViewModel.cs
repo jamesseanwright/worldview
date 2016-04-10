@@ -8,11 +8,11 @@ namespace UnsplashRoulette.Main
 {
     class MainViewModel : ViewModel
     {
-        IPhotoService photoService;
+        PhotoService photoService;
 
         const int SlideDurationSeconds = 10;
 
-        public MainViewModel(IPhotoService photoService)
+        public MainViewModel(PhotoService photoService)
         {
             this.photoService = photoService;
         }

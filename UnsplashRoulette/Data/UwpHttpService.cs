@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Windows.Web.Http.Headers;
+using Windows.Web.Http.Filters;
 using Windows.Web.Http;
 using Windows.Storage.Streams;
 
@@ -15,8 +16,15 @@ namespace UnsplashRoulette.Data
 
         public UwpHttpService()
         {
-            this.httpClient = new Windows.Web.Http.HttpClient();
+            this.httpClient = new HttpClient(GetProtocolFilter());
             this.headers = httpClient.DefaultRequestHeaders;
+        }
+
+        private HttpBaseProtocolFilter GetProtocolFilter()
+        {
+            HttpBaseProtocolFilter filter = new HttpBaseProtocolFilter();
+            filter.CacheControl.ReadBehavior = HttpCacheReadBehavior.MostRecent;
+            return filter;
         }
 
         public async override Task<Stream> GetAsync(string url)
