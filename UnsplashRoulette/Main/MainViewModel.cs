@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Threading.Tasks;
 using UnsplashRoulette.Device;
 using UnsplashRoulette.Framework;
@@ -24,8 +25,8 @@ namespace UnsplashRoulette.Main
             await UpdatePhotoAsync();
         }
 
-        private string image;
-        public string Image
+        private Stream image;
+        public Stream Image
         {
             get
             {
@@ -43,7 +44,8 @@ namespace UnsplashRoulette.Main
         {
             Size screenSize = this.viewport.GetNormalisedAppSize();
             Photo photo = await this.photoService.GetRandomPhotoAsync((int) screenSize.Width * 2, (int) screenSize.Height * 2);
-            Image = photo.Url;
+            Stream photoData = await this.photoService.GetPhotoDataAsync(photo.Url);
+            Image = photoData;
             await EnqueueUpdate();
         }
 

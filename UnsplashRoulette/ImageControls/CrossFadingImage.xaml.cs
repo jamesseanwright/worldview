@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -27,16 +28,16 @@ namespace UnsplashRoulette.ImageControls
 
         public static readonly DependencyProperty SourceProperty = DependencyProperty.Register(
             "Source",
-            typeof(string),
+            typeof(Stream),
             typeof(CrossFadingImage),
-            new PropertyMetadata(string.Empty, LoadImage)
+            new PropertyMetadata(string.Empty, async (i, args) => await LoadImageAsync(i, args))
         );
         
-        public string Source
+        public Stream Source
         {
             get
             {
-                return (string) GetValue(SourceProperty);
+                return (Stream) GetValue(SourceProperty);
             }
 
             set
@@ -45,16 +46,18 @@ namespace UnsplashRoulette.ImageControls
             }
         }
 
-        public string StaleSource { get; private set; }
+        public Stream StaleSource { get; private set; }
 
-        private static void LoadImage(object instance, DependencyPropertyChangedEventArgs args)
+        private static async Task LoadImageAsync(object instance, DependencyPropertyChangedEventArgs args)
         {
             CrossFadingImage imageControl = (CrossFadingImage) instance;
-            string newSource = (string) args.NewValue;
-
+            Stream newSource = (Stream) args.NewValue;
+            MemoryStream memoryStream = new MemoryStream();
+            await newSource.CopyToAsync(memoryStream);
+            memoryStream.Position = 0;
             BitmapImage image = new BitmapImage();
             image.ImageOpened += (s, a) => imageControl.OnImageLoaded(image);
-            image.UriSource = new Uri(newSource);
+            await image.SetSourceAsync(memoryStream.AsRandomAccessStream());
         }
 
         private void OnImageLoaded(BitmapImage image)

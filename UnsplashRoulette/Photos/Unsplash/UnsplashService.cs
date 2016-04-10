@@ -32,6 +32,12 @@ namespace UnsplashRoulette.Photos.Unsplash
             return MapToPhoto(unsplashPhoto);
         }
 
+        public async override Task<Stream> GetPhotoDataAsync(string url)
+        {
+            Stream data = await this.httpService.GetAsync(url);
+            return data;
+        }
+
         private void AddHeaders()
         {
             this.httpService.AddHeaders(
