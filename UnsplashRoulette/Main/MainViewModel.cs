@@ -3,6 +3,7 @@ using System.IO;
 using System.Threading.Tasks;
 using UnsplashRoulette.Device;
 using UnsplashRoulette.Framework;
+using UnsplashRoulette.Metadata;
 using UnsplashRoulette.Music;
 using UnsplashRoulette.Photos;
 
@@ -21,6 +22,8 @@ namespace UnsplashRoulette.Main
             this.photoService = photoService;
             this.viewport = viewport;
             this.musicLoader = musicLoader;
+
+            Metadata = new MetadataViewModel();
         }
 
         public async override void OnNavigatedTo()
@@ -37,7 +40,7 @@ namespace UnsplashRoulette.Main
                 return this.image;
             }
 
-            set
+            private set
             {
                 this.image = value;
                 RaisePropertyChanged();
@@ -52,9 +55,24 @@ namespace UnsplashRoulette.Main
                 return this.track;
             }
 
-            set
+            private set
             {
                 this.track = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private MetadataViewModel metadata;
+        public MetadataViewModel Metadata
+        {
+            get
+            {
+                return this.metadata;
+            }
+
+            private set
+            {
+                this.metadata = value;
                 RaisePropertyChanged();
             }
         }
@@ -72,6 +90,7 @@ namespace UnsplashRoulette.Main
             using (Stream photoData = await this.photoService.GetPhotoDataAsync(photo.Url))
             {
                 Image = photoData;
+                await Metadata.UpdateAsync(photo, this.photoService);
             }
 
             await EnqueueUpdate();

@@ -42,12 +42,11 @@ namespace UnsplashRoulette.ImageControls
 
             set
             {
-                Source.Dispose();
                 SetValue(SourceProperty, value);
             }
         }
 
-        private static async Task OnImageChangedAsync(object instance, DependencyPropertyChangedEventArgs args)
+        private static async Task OnImageChangedAsync(DependencyObject instance, DependencyPropertyChangedEventArgs args)
         {
             CrossFadingImage imageControl = (CrossFadingImage) instance;
             Stream newSource = (Stream) args.NewValue;

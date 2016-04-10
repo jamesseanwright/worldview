@@ -119,6 +119,7 @@
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Main\MainViewModel.cs" />
+    <Compile Include="Metadata\MetadataViewModel.cs" />
     <Compile Include="Music\MusicLoader.cs" />
     <Compile Include="Music\UwpMusicLoader.cs" />
     <Compile Include="Photos\Location.cs" />
