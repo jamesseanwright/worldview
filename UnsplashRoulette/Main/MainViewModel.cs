@@ -39,7 +39,7 @@ namespace UnsplashRoulette.Main
 
         private async Task UpdatePhotoAsync()
         {
-            Photo photo = await this.photoService.GetRandomPhotoAsync(1920, 1080);
+            Photo photo = await this.photoService.GetRandomPhotoAsync(3840, 2160);
             Image = photo.Url;
             await EnqueueUpdate();
         }
