@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
 using UnsplashRoulette.Data;
+using UnsplashRoulette.Device;
 
 namespace UnsplashRoulette.Photos.Unsplash
 {

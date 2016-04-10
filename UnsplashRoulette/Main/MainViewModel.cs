@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Threading;
 using System.Threading.Tasks;
+using UnsplashRoulette.Device;
 using UnsplashRoulette.Framework;
 using UnsplashRoulette.Photos;
 
@@ -9,12 +9,14 @@ namespace UnsplashRoulette.Main
     class MainViewModel : ViewModel
     {
         PhotoService photoService;
+        Viewport viewport;
 
         const int SlideDurationSeconds = 10;
 
-        public MainViewModel(PhotoService photoService)
+        public MainViewModel(PhotoService photoService, Viewport viewport)
         {
             this.photoService = photoService;
+            this.viewport = viewport;
         }
 
         public async override void OnNavigatedTo()
@@ -39,7 +41,8 @@ namespace UnsplashRoulette.Main
 
         private async Task UpdatePhotoAsync()
         {
-            Photo photo = await this.photoService.GetRandomPhotoAsync(3840, 2160);
+            Size screenSize = this.viewport.GetNormalisedAppSize();
+            Photo photo = await this.photoService.GetRandomPhotoAsync((int) screenSize.Width * 2, (int) screenSize.Height * 2);
             Image = photo.Url;
             await EnqueueUpdate();
         }

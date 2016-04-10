@@ -2,6 +2,7 @@
 using UnsplashRoulette.Photos;
 using Windows.UI.Xaml;
 using Windows.System.Profile;
+using UnsplashRoulette.Device;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -16,7 +17,7 @@ namespace UnsplashRoulette.Main
         {
             this.InitializeComponent();
             SetRootMargin();
-            DataContext = DependencyInjector.Instance.CreateInstance<MainViewModel>(typeof(PhotoService));
+            DataContext = DependencyInjector.Instance.CreateInstance<MainViewModel>(typeof(PhotoService), typeof (Viewport));
         }
 
         private void SetRootMargin()

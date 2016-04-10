@@ -101,6 +101,7 @@
     <Compile Include="Data\Deserialiser.cs" />
     <Compile Include="Data\JsonDeserialiser.cs" />
     <Compile Include="Dependencies.cs" />
+    <Compile Include="Device\Size.cs" />
     <Compile Include="Framework\ActionCommand.cs" />
     <Compile Include="Framework\DependencyInjector.cs" />
     <Compile Include="Framework\Navigator.cs" />
@@ -126,6 +127,8 @@
     <Compile Include="Photos\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Photos\PhotoService.cs" />
+    <Compile Include="Device\UwpViewport.cs" />
+    <Compile Include="Device\Viewport.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
