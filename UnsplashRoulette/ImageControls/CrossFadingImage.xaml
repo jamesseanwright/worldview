@@ -5,11 +5,47 @@
     xmlns:local="using:UnsplashRoulette.ImageControls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
     <Grid>
-        <Image x:Name="CurrentPhoto"
-               Stretch="UniformToFill"
-               Opacity="1" />
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="CommonStates">
+                <VisualState x:Name="OnImageChanged">
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetName="CurrentImage"
+                                         Storyboard.TargetProperty="Opacity"
+                                         To="1"
+                                         BeginTime="0:0:0"
+                                         Duration="0:0:1" />
 
-        <Image x:Name="StalePhoto"
+                        <DoubleAnimation Storyboard.TargetName="StaleImage"
+                                         Storyboard.TargetProperty="Opacity"
+                                         To="0"
+                                         BeginTime="0:0:0"
+                                         Duration="0:0:1" />
+                    </Storyboard>
+                </VisualState>
+
+                <VisualState x:Name="OnImageStale">
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetName="StaleImage"
+                                         Storyboard.TargetProperty="Opacity"
+                                         To="1"
+                                         BeginTime="0:0:0"
+                                         Duration="0:0:0" />
+                        
+                        <DoubleAnimation Storyboard.TargetName="CurrentImage"
+                                         Storyboard.TargetProperty="Opacity"
+                                         To="0"
+                                         BeginTime="0:0:0"
+                                         Duration="0:0:0" />
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Image x:Name="StaleImage"
+               Stretch="UniformToFill"
+               Opacity="0" />
+        
+        <Image x:Name="CurrentImage"
                Stretch="UniformToFill"
                Opacity="0" />
     </Grid>

@@ -56,11 +56,10 @@ namespace UnsplashRoulette.ImageControls
 
         private void MakeCurrentImageStale()
         {
-            if (CurrentPhoto.Source != null)
+            if (CurrentImage.Source != null)
             {
-                StalePhoto.Source = CurrentPhoto.Source;
-                StalePhoto.Opacity = 1;
-                CurrentPhoto.Opacity = 0;
+                StaleImage.Source = CurrentImage.Source;
+                VisualStateManager.GoToState(this, "OnImageStale", false);
             }
         }
 
@@ -76,9 +75,8 @@ namespace UnsplashRoulette.ImageControls
 
         private void OnImageLoaded(BitmapImage image)
         {
-            CurrentPhoto.Source = image;
-            CurrentPhoto.Opacity = 1;
-            StalePhoto.Opacity = 0;
+            CurrentImage.Source = image;
+            VisualStateManager.GoToState(this, "OnImageChanged", false);
         }
     }
 }
