@@ -1,4 +1,5 @@
-# Unsplash Roulette
+# WorldView
+
 Xbox One-compatible UWP app that displays random photos from [Unsplash](https://unsplash.com/), backed by random Kevin MacLeod music. Follows the MVVM design pattern.
 
 
