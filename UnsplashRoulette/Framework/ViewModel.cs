@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace UnsplashRoulette.Framework
+namespace WorldView.Framework
 {
     public abstract class ViewModel : INotifyPropertyChanged
     {

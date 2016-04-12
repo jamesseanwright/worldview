@@ -1,4 +1,4 @@
-﻿namespace UnsplashRoulette.Photos
+﻿namespace WorldView.Photos
 {
     class Location
     {

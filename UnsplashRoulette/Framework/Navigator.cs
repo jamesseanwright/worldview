@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UnsplashRoulette.Framework
+namespace WorldView.Framework
 {
     public abstract class Navigator
     {

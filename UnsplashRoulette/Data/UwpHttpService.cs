@@ -7,7 +7,7 @@ using Windows.Web.Http.Filters;
 using Windows.Web.Http;
 using Windows.Storage.Streams;
 
-namespace UnsplashRoulette.Data
+namespace WorldView.Data
 {
     class UwpHttpService : HttpService
     {

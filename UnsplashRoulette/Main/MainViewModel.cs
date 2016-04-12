@@ -1,13 +1,13 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
-using UnsplashRoulette.Device;
-using UnsplashRoulette.Framework;
-using UnsplashRoulette.Metadata;
-using UnsplashRoulette.Music;
-using UnsplashRoulette.Photos;
+using WorldView.Device;
+using WorldView.Framework;
+using WorldView.Metadata;
+using WorldView.Music;
+using WorldView.Photos;
 
-namespace UnsplashRoulette.Main
+namespace WorldView.Main
 {
     class MainViewModel : ViewModel
     {
@@ -15,6 +15,7 @@ namespace UnsplashRoulette.Main
         Viewport viewport;
         MusicLoader musicLoader;
 
+        // excludes image download times. Will fix!
         const int SlideDurationSeconds = 10;
 
         public MainViewModel(PhotoService photoService, Viewport viewport, MusicLoader musicLoader)
@@ -75,6 +76,11 @@ namespace UnsplashRoulette.Main
                 this.metadata = value;
                 RaisePropertyChanged();
             }
+        }
+
+        public void OnTrackEnded()
+        {
+            SetTrack();
         }
 
         private void SetTrack()

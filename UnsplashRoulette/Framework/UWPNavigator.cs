@@ -2,7 +2,7 @@
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace UnsplashRoulette.Framework
+namespace WorldView.Framework
 {
     public class UwpNavigator : Navigator
     {

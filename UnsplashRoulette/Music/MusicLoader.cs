@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Windows.Storage.Streams;
 
-namespace UnsplashRoulette.Music
+namespace WorldView.Music
 {
     abstract class MusicLoader
     {

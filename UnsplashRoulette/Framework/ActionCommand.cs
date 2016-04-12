@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace UnsplashRoulette.Framework
+namespace WorldView.Framework
 {
     public class ActionCommand : ICommand
     {

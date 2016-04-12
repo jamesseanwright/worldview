@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
-using UnsplashRoulette.Data;
-using UnsplashRoulette.Device;
+using WorldView.Data;
+using WorldView.Device;
 
-namespace UnsplashRoulette.Photos.Unsplash
+namespace WorldView.Photos.Unsplash
 {
     class UnsplashService : PhotoService
     {

@@ -2,7 +2,7 @@
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-namespace UnsplashRoulette.Framework
+namespace WorldView.Framework
 {
     public abstract class View : Page
     {

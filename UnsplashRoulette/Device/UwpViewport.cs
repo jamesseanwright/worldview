@@ -2,7 +2,7 @@
 using Windows.Graphics.Display;
 using Windows.UI.ViewManagement;
 
-namespace UnsplashRoulette.Device
+namespace WorldView.Device
 {
     class UwpViewport : Viewport
     {
@@ -10,8 +10,8 @@ namespace UnsplashRoulette.Device
         {
             Rect visibleBounds = ApplicationView.GetForCurrentView().VisibleBounds;
             double devicePixelRatio = DisplayInformation.GetForCurrentView().RawPixelsPerViewPixel;
-            double width = (visibleBounds.X * 2 + visibleBounds.Width) * devicePixelRatio;
-            double height = (visibleBounds.Y * 2 + visibleBounds.Height) * devicePixelRatio;
+            double width = visibleBounds.Width * devicePixelRatio;
+            double height = visibleBounds.Height * devicePixelRatio;
 
             return new Size(width, height);
         }

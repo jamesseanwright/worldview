@@ -1,4 +1,4 @@
-﻿namespace UnsplashRoulette.Device
+﻿namespace WorldView.Device
 {
     class Size
     {

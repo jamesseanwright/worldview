@@ -1,12 +1,12 @@
-﻿using UnsplashRoulette.Framework;
-using UnsplashRoulette.Main;
-using UnsplashRoulette.Data;
-using UnsplashRoulette.Photos;
-using UnsplashRoulette.Photos.Unsplash;
-using UnsplashRoulette.Device;
-using UnsplashRoulette.Music;
+﻿using WorldView.Framework;
+using WorldView.Main;
+using WorldView.Data;
+using WorldView.Photos;
+using WorldView.Photos.Unsplash;
+using WorldView.Device;
+using WorldView.Music;
 
-namespace UnsplashRoulette
+namespace WorldView
 {
     class Dependencies
     {

@@ -1,9 +1,9 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
-using UnsplashRoulette.Framework;
-using UnsplashRoulette.Photos;
+using WorldView.Framework;
+using WorldView.Photos;
 
-namespace UnsplashRoulette.Metadata
+namespace WorldView.Metadata
 {
     class MetadataViewModel : ViewModel
     {

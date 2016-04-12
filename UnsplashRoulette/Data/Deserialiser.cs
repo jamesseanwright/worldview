@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage.Streams;
 
-namespace UnsplashRoulette.Data
+namespace WorldView.Data
 {
     abstract class Deserialiser
     {

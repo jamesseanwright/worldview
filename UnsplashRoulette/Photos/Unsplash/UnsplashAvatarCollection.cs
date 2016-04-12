@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace UnsplashRoulette.Photos.Unsplash
+namespace WorldView.Photos.Unsplash
 {
     [DataContract]
     class UnsplashAvatarCollection

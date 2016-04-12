@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace UnsplashRoulette.Framework
+namespace WorldView.Framework
 {
     public class UwpViewResolver : ViewResolver
     {

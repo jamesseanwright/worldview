@@ -6,7 +6,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-namespace UnsplashRoulette
+namespace WorldView
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
@@ -40,7 +40,7 @@ namespace UnsplashRoulette
             }
 #endif
 
-            Dependencies.Register(UnsplashRoulette.Framework.DependencyInjector.Instance);
+            Dependencies.Register(WorldView.Framework.DependencyInjector.Instance);
             DisableSafeArea();
 
             Frame rootFrame = Window.Current.Content as Frame;

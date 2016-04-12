@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Runtime.Serialization.Json;
 
-namespace UnsplashRoulette.Data
+namespace WorldView.Data
 {
     class JsonDeserialiser : Deserialiser
     {

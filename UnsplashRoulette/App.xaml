@@ -1,8 +1,8 @@
 ﻿<Application
-    x:Class="UnsplashRoulette.App"
+    x:Class="WorldView.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:UnsplashRoulette"
+    xmlns:local="using:WorldView"
     RequestedTheme="Light">
 
 </Application>

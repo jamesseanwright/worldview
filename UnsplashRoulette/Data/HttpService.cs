@@ -2,7 +2,7 @@
 using System.IO;
 using System.Threading.Tasks;
 
-namespace UnsplashRoulette.Data
+namespace WorldView.Data
 {
     abstract class HttpService
     {

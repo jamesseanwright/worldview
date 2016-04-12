@@ -1,13 +1,12 @@
-﻿using UnsplashRoulette.Framework;
-using UnsplashRoulette.Photos;
+﻿using WorldView.Framework;
+using WorldView.Photos;
+using WorldView.Device;
+using WorldView.Music;
 using Windows.UI.Xaml;
-using Windows.System.Profile;
-using UnsplashRoulette.Device;
-using UnsplashRoulette.Music;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace UnsplashRoulette.Main
+namespace WorldView.Main
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -18,6 +17,12 @@ namespace UnsplashRoulette.Main
         {
             this.InitializeComponent();
             DataContext = DependencyInjector.Instance.CreateInstance<MainViewModel>(typeof(PhotoService), typeof(Viewport), typeof(MusicLoader));
+        }
+
+        private void OnTrackEnded(object sender, RoutedEventArgs e)
+        {
+            MainViewModel viewModel = (MainViewModel) DataContext;
+            viewModel.OnTrackEnded();
         }
     }
 }
