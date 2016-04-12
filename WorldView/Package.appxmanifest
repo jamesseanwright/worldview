@@ -3,8 +3,8 @@
   <Identity Name="c36b79e9-2074-4567-b00b-b29b02bbe407" Publisher="CN=james" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="c36b79e9-2074-4567-b00b-b29b02bbe407" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>UnsplashRoulette</DisplayName>
-    <PublisherDisplayName>james</PublisherDisplayName>
+    <DisplayName>WorldView</DisplayName>
+    <PublisherDisplayName>James Wright</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
@@ -14,8 +14,8 @@
     <Resource Language="x-generate" />
   </Resources>
   <Applications>
-    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="UnsplashRoulette.App">
-      <uap:VisualElements DisplayName="UnsplashRoulette" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="UnsplashRoulette" BackgroundColor="transparent">
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="WorldView.App">
+      <uap:VisualElements DisplayName="WorldView" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="WorldView" BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png">
         </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
