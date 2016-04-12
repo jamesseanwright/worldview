@@ -7,8 +7,8 @@
     <ProjectGuid>{8D455051-EC87-4625-AF43-15172E69A628}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UnsplashRoulette</RootNamespace>
-    <AssemblyName>UnsplashRoulette</AssemblyName>
+    <RootNamespace>WorldView</RootNamespace>
+    <AssemblyName>WorldView</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.14295.0</TargetPlatformVersion>
