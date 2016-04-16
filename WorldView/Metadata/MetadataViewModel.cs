@@ -56,11 +56,7 @@ namespace WorldView.Metadata
 
         public async Task UpdateAsync(Photo photo, PhotoService photoService)
         {
-            using (Stream avatarData = await photoService.GetPhotoDataAsync(photo.User.Avatar))
-            {
-                Avatar = avatarData;
-            }
-
+            Avatar = await photoService.GetPhotoDataAsync(photo.User.Avatar);
             Name = photo.User.Name;
             Location location = photo.Location;
             bool isLocationValid = location.City != null && location.Country != null;

@@ -39,9 +39,14 @@ namespace WorldView.ImageControls
         private static async Task OnImageChangedAsync(DependencyObject instance, DependencyPropertyChangedEventArgs args)
         {
             CrossFadingImage imageControl = (CrossFadingImage) instance;
+            Stream oldSource = (Stream) args.OldValue;
             Stream newSource = (Stream) args.NewValue;
             imageControl.MakeCurrentImageStale();
             await imageControl.UpdateImageAsync(newSource);
+
+            /* Only disposing of the old source when the new one is ready.
+             * Otherwise, it's disposed of too early and throws an exception */
+            oldSource?.Dispose();
         }
 
         private void MakeCurrentImageStale()

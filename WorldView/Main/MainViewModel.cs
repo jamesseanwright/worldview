@@ -16,7 +16,7 @@ namespace WorldView.Main
         MusicLoader musicLoader;
 
         // excludes image download times. Will fix!
-        const int SlideDurationSeconds = 10;
+        const int SlideDurationSeconds = 7;
 
         public MainViewModel(PhotoService photoService, Viewport viewport, MusicLoader musicLoader)
         {
