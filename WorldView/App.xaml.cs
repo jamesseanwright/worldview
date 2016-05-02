@@ -41,7 +41,7 @@ namespace WorldView
 #endif
 
             Dependencies.Register(WorldView.Framework.DependencyInjector.Instance);
-            DisableSafeArea();
+            EnforceSafeArea();
 
             Frame rootFrame = Window.Current.Content as Frame;
 
@@ -77,7 +77,7 @@ namespace WorldView
             }
         }
 
-        private void DisableSafeArea()
+        private void EnforceSafeArea()
         {
             ApplicationView view = ApplicationView.GetForCurrentView();
             view.SetDesiredBoundsMode(ApplicationViewBoundsMode.UseCoreWindow);
