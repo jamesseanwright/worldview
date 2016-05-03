@@ -3,6 +3,7 @@
 Xbox One-compatible UWP app that displays random photos from [Unsplash](https://unsplash.com/), backed by random Kevin MacLeod music. Follows the MVVM design pattern.
 
 [YouTube video](https://www.youtube.com/watch?v=joX23HvMCm4)
+[Blog post](http://jamesswright.co.uk/blog/1462207-developing-uwp-apps-xbox-one)
 
 
 ## Running on Xbox One
